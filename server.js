@@ -18,22 +18,22 @@ app.use(bodyParser.json({
 
 var customers = [{
     routeName: "yoda",
-    name: "Adam",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
+    customerName: "Adam",
+    phoneNumber: "Jedi Master",
+    customerEmail: 900,
+    customerID: 2000
 }, {
     routeName: "darthmaul",
-    name: "Kevin",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
+    customerName: "Kevin",
+    phoneNumber: "Sith Lord",
+    customerEmail: 200,
+    customerID: 1200
 }, {
     routeName: "obiwankenobi",
-    name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
+    customerName: "Obi Wan Kenobi",
+    phoneNumber: "Jedi Master",
+    customerEmail: 55,
+    customerID: 1350
 }];
 
 app.get("/", function(req, res) {
@@ -45,7 +45,7 @@ app.get("/api/:customers?", function(req, res) {
 
     if (chosen) {
         for (var i = 0; i < customers.length; i++) {
-            if (customers[i].name === chosen) {
+            if (customers[i].customerName === chosen) {
                 console.log(chosen);
                 // res.send(chosen);
                 var content = $("h1");
