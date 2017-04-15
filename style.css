@@ -1,10 +1,11 @@
-* {
-	font-family: Arial, sans-serif;
+.jumbotron {
+	position: relative;
+	height: 300px;
 }
 
 .btn {
 	font-family: Arial, sans-serif;
-	text-align: center;
+	margin: 5px;
 }
 
 #homeBtn {
@@ -24,9 +25,8 @@
 }
 
 #buttons {
-	margin: auto;
-	padding: 0;
-	vertical-align: middle;
+	display: inline-block;
+	position: absolute;
 }
 
 #content {
