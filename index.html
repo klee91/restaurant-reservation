@@ -2,63 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Reservation Requests</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 	<meta charset="UTF-8">
+	<title>Reservation Requests</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="text-center">Reservation Requests</h1>
-            <p class="text-center">Make a Reservation!</p>
-            <div></div>
-        
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="text-center">Reservation Requests</h1>
+			<p class="text-center">Make a Reservation!</p>
 
-        <div class="container" id="buttons">
-            <!--Home Button-->
-            <div>
-                <btn class="glyphicon glyphicon-home" id="homeBtn">Home</btn>
-            </div>
-            <!--Make Reservation Button-->
-            <div>
-                <btn class="" id="reserveBtn">Make a Reservation</btn>
-            </div>
-            <!--Wait List Button-->
-            <div>
-                <btn class="" id="listBtn">Wait List</btn>
-            </div>
-        </div>
+		<div class="text-center" id="buttons">
 
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Current Reservations</h3>
-                    </div>
-                    <div class="panel-body" id="reservationResults">
-                        <div class="panel-body">
-                            <div class="well">
-                                <h2 id="name">Adam</h2>
-                                <div id="stats">
-                                    <h3><strong>Phone Number:</strong> <span id="number">Jedi Master</span></h3>
-                                    <h3><strong>Email:</strong> <span id="customerEmail">900</span></h3>
-                                    <h3><strong>ID:</strong> <span id="customerID">2000</span></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="app.js"></script>
+			<!--Make Reservation Button-->
+			<div>
+				<a href="/reserve">
+				<button type="button" class="btn btn-danger btn-lg" id="reserveBtn"><span class="glyphicon glyphicon-pencil"></span> Make A Reservation</button>
+				</a>
+			</div>
+			<!--Table List Button-->
+			<div>
+				<a href="/tables">
+				<button type="button" class="btn btn-info btn-lg glyphicon" id="tableBtn"><span class="glyphicon glyphicon-th-list"></span> View Tables</button>
+				</a>
+			</div>
+
+		</div>
+
+		</div>
+	</div>
+	
 </body>
 
 </html>
