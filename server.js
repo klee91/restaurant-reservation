@@ -46,10 +46,8 @@ app.get("/api/:customers?", function(req, res) {
     if (chosen) {
         for (var i = 0; i < customers.length; i++) {
             if (customers[i].customerName === chosen) {
-                console.log(chosen);
-                // res.send(chosen);
-                var content = $("h1");
-                content.html(chosen);
+                console.log("request was made!");
+                return res.json(customers[i].customerName);
             }
         }
     }
