@@ -55,7 +55,10 @@ app.get("/api/:customers?", function(req, res) {
         for (var i = 0; i < customers.length; i++) {
             if (customers[i].customerName === chosen) {
 
-                res.send(customers);
+                array.push(customers[i]);
+                res.json(array);
+
+                $('#stats-one').html(array);
 
                 console.log("request was made!");
                 return res.json(customers[i].customerName);
@@ -66,6 +69,17 @@ app.get("/api/:customers?", function(req, res) {
     return res.json(customers);
 });
 
+//add new customer
+app.post("/api/new", function(req, res) {
+  var newcustomer = req.body;
+  newcustomer.routeName = newcustomer.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newcustomer);
+
+  customers.push(newcustomer);
+
+  res.json(newcustomer);
+});
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);

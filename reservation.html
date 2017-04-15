@@ -53,20 +53,20 @@
 				              	<div class="panel-body">
 				               <form>
 								  <div class="form-group">
-								    <label for="name">Name</label>
-								    <input type="text" class="form-control" id="name" placeholder="John">
+								    <label for="name-input">Name</label>
+								    <input type="text" class="form-control" id="name-input" placeholder="John">
 								  </div>
 								  <div class="form-group">
-								    <label for="phone">Phone Number</label>
-								    <input type="text" class="form-control" id="phone" placeholder="###-###-####">
+								    <label for="phone-input">Phone Number</label>
+								    <input type="text" class="form-control" id="phone-input" placeholder="###-###-####">
 								  </div>
 								  <div class="form-group">
-								    <label for="email">Email</label>
-								    <input type="text" class="form-control" id="email" placeholder="john@gmail.com">
+								    <label for="email-input">Email</label>
+								    <input type="text" class="form-control" id="email-input" placeholder="john@gmail.com">
 								  </div>
 								  <div class="form-group">
-								    <label for="id">Unique ID</label>
-								    <input type="text" class="form-control" id="id" placeholder="john1">
+								    <label for="id-input">Unique ID</label>
+								    <input type="text" class="form-control" id="id-input" placeholder="john1">
 								  </div>
 
 								  <button type="submit" class="btn btn-info" id="submitBtn">Submit</button>
@@ -80,26 +80,23 @@
 	</div>
 
 <script type="text/javascript">
-	$("#search-btn").on("click", function() {
-	  var searchedCharacter = $("#character-search").val().trim();
+	$("#submitBtn").on("click", function(event) {
+      event.preventDefault();
+      var newCustomer = {
+        name: $("#name-input").val().trim(),
+        phone: $("#phone-input").val().trim(),
+        email: $("#email-input").val().trim(),
+        id: $("#id-input").val().trim()
+      };
+      
+      $.post("/api/new", newCustomer)
+      .done(function(data) {
+        console.log(data);
+        alert("Adding customer...");
+      });
 
-	  searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-	  $.get("/api/" + searchedCharacter, function(data) {
-	    console.log(data);
-	    if (data) {
-	      $("#stats").show();
-	      $("#name").text(data.name);
-	      $("#role").text(data.role);
-	      $("#age").text(data.age);
-	      $("#force-points").text(data.forcePoints);
-	    }
-	    else {
-	      $("#name").text("The force is not strong with this one. Your character was not found.");
-	      $("#stats").hide();
-	    }
-	  });
-	});
+      console.log(newCustomer);
+    });
 </script>
 </body>
 
