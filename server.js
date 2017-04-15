@@ -40,16 +40,17 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "table.html"));
+});
+
 app.get("/api/:customers?", function(req, res) {
     var chosen = req.params.customers;
 
     if (chosen) {
         for (var i = 0; i < customers.length; i++) {
             if (customers[i].customerName === chosen) {
-                console.log(chosen);
-                // res.send(chosen);
-                var content = $("h1");
-                content.html(chosen);
+                res.send(customers);
             }
         }
     }
